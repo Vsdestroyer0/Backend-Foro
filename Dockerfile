@@ -4,19 +4,22 @@ FROM rrojano/spring-boot
 # Establecer el directorio de trabajo
 WORKDIR /app
 
+# Instalar Maven (ya que la imagen del profe no lo tiene)
+RUN apt-get update && apt-get install -y maven
+
 # Copiar el archivo pom.xml
 COPY pom.xml .
 
 # Descargar dependencias
 # Se usa go-offline para que no descargue dependencias que no se usen
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline
 
 # Copiar el código fuente
 COPY src ./src
 
 # Construir la aplicación
 # Se usa clean para limpiar la carpeta target
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Exponer el puerto
 EXPOSE 8080
