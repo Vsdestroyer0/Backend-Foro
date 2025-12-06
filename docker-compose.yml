@@ -1,0 +1,18 @@
+# Versión del docker compose
+version: '3.8'
+
+# Define los contenedores que se van a ocupar
+services:
+# Mi contenedor app o servicio app (se va a crear un contenedor con este nombre)
+  app:
+  # Empieza a construir la imagen ddesde el Dockerfile en el directorio actual x el punto
+    build: .
+    # Mapea los puertos
+    ports:
+      - "8080:8080"
+    # Variables de entorno
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://iggan443_db_user:IMmEIHtiXG4HScI@foro.tblcvlu.mongodb.net/Foro
+      - SERVER_PORT=8080
+    # Si el servidor se detiene por "X" razón, se intenta reiniciar, si se detiene manualmente muere (no se reinicia sadjaj)
+    restart: unless-stopped
