@@ -5,7 +5,7 @@ FROM rrojano/spring-boot
 WORKDIR /app
 
 # Instalar Maven (ya que la imagen del profe no lo tiene)
-RUN apt-get update && apt-get install -y maven
+RUN apk update && apk add maven
 
 # Copiar el archivo pom.xml
 COPY pom.xml .
