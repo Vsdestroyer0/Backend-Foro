@@ -12,7 +12,7 @@ services:
       - "8080:8080"
     # Variables de entorno
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb+srv://iggan443_db_user:IMmEIHtiXG4HScI@foro.tblcvlu.mongodb.net/Foro
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://iggan443_db_user:IMmEIHtiXG4HScI@foro.tblcvlu.mongodb.net/Foro?retryWrites=true&w=majority&appName=foro
       - SERVER_PORT=8080
     # Si el servidor se detiene por "X" razón, se intenta reiniciar, si se detiene manualmente muere (no se reinicia sadjaj)
     restart: unless-stopped
