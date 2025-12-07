@@ -7,3 +7,5 @@ El comando docker-compose up se usa para ejecutar la aplicación en un contenedo
 Se usará la versión de spring del profe
 Se construirá la aplicación mediante el dockerfile para render, ya que no tiene una versión nativa para poder correr proyectos en java
 Se usará el docker-compose.yml para ejecutar la aplicación en un contenedor
+
+Guardar mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?retryWrites=true&w=majority&appName=foro
