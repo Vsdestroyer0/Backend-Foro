@@ -32,4 +32,4 @@ ENV SPRING_DATA_MONGODB_URI=mongodb+srv://iggan443_db_user:Slayer185@foro.wywprc
 
 # Comando para ejecutar la aplicación
 # Se usará target/Backend-Foro-0.0.1-SNAPSHOT.jar ya que es el nombre que se le dio al archivo jar (y basandonos en el proyecto que hicimos en clase)
-CMD ["java", "-Dspring.data.mongodb.uri=mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?retryWrites=true&w=majority&appName=foro", "-jar", "target/Backend-Foro-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-Dspring.data.mongodb.uri=mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?ssl=true&retryWrites=true&w=majority&appName=foro", "-jar", "target/Backend-Foro-0.0.1-SNAPSHOT.jar"]

@@ -9,3 +9,14 @@ Se construirá la aplicación mediante el dockerfile para render, ya que no tien
 Se usará el docker-compose.yml para ejecutar la aplicación en un contenedor
 
 Guardar mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?retryWrites=true&w=majority&appName=foro
+
+
+# Dirección de la base de datos
+# spring.data.mongodb.uri=mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?ssl=true&retryWrites=true&w=majority&appName=foro
+# Prueba
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+#Puerto del servidor
+server.port=8080
+
+
+
