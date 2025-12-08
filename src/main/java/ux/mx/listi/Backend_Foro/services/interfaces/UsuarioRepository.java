@@ -1,4 +1,4 @@
-package ux.mx.listi.Backend_Foro.repositories;
+package ux.mx.listi.Backend_Foro.services.interfaces;
 
 import java.util.Optional;
 

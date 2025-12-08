@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ux.mx.listi.Backend_Foro.models.usuarios;
-import ux.mx.listi.Backend_Foro.repositories.UsuarioRepository;
+import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
 
 @Service
 public class AuthController {
