@@ -33,4 +33,8 @@ docker-compose up --build // construye todo el proyecto y lo levanta
 - Tomcat va por default cuando se arranca la clase usando la dependencia spring-boot-starter-web, tomcat lo que hace es que levanta
 el servidor y escucha el puerto 8080 (A menos que se cambie con una propiedad de server.port en las propiedades)
 - Los enum sirven para poder declarar varioos tipos de datos para una variable
-- 
+- para forzar la construccion de el contenedor, haz esto:
+        # Eliminar caché y reconstruir
+        docker-compose down
+        docker-compose build --no-cache
+        docker-compose up
