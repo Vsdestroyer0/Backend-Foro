@@ -10,13 +10,13 @@ Se usará el docker-compose.yml para ejecutar la aplicación en un contenedor
 
 Guardar mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?retryWrites=true&w=majority&appName=foro
 
+# Comandos
 
-# Dirección de la base de datos
-# spring.data.mongodb.uri=mongodb+srv://iggan443_db_user:Slayer185@foro.wywprcc.mongodb.net/Foro?ssl=true&retryWrites=true&w=majority&appName=foro
-# Prueba
-spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
-#Puerto del servidor
-server.port=8080
+## ./mvnw clean package
+- Limpia la carpeta `target` y recompila todo el proyecto.
+- Ejecuta los tests y genera el JAR en `target/Backend-Foro-0.0.1-SNAPSHOT.jar`.
 
-
+## ./mvnw spring-boot:run
+- Arranca la aplicación Spring Boot en modo desarrollo.
+- Usa la configuración de `application.properties` y expone el backend en `http://localhost:8080`
 
