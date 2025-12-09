@@ -24,6 +24,9 @@
 
 ## Administradores
 
+### Autenticación
+- **POST** `/api/auth/login` - Iniciar sesión
+
 ### Posts (Admin puede modificar CUALQUIER post)
 - **PUT** `/api/posts/{postId}` - Actualizar CUALQUIER post (requiere header X-User-Id)
 - **DELETE** `/api/posts/{postId}` - Eliminar CUALQUIER post (requiere header X-User-Id)
@@ -32,6 +35,11 @@
 - **PUT** `/api/comments/{commentId}` - Actualizar CUALQUIER comentario (requiere header X-User-Id)
 - **DELETE** `/api/comments/{commentId}` - Eliminar CUALQUIER comentario (requiere header X-User-Id)
 - **DELETE** `/api/comments/{commentId}/con-permisos` - Eliminar con permisos extendidos (autor del post o admin)
+
+### Usuarios (Gestión de usuarios)
+- **GET** `/api/auth/usuarios` - Listar todos los usuarios (solo admin)
+- **PUT** `/api/auth/usuarios/{usuarioId}/role` - Cambiar rol de usuario (solo admin)
+- **DELETE** `/api/auth/usuarios/{usuarioId}` - Eliminar usuario (solo admin)
 
 ## Headers Requeridos
 - `X-User-Id` - ID del usuario para operaciones que requieren autenticación

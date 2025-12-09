@@ -5,18 +5,20 @@ package ux.mx.listi.Backend_Foro.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 import ux.mx.listi.Backend_Foro.models.usuarios;
 import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
 
-@Service
+@RestController
+@RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     
     // ResponseEntity es una clase de Spring para controlar respuestas tipo HTTP
     // ? Indica que el tipo de respuesta puede ser cualquier cosa
-    public ResponseEntity<?> login(LoginRequest request) {
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         if (request.email == null || request.password == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Debes proporcionar email y contraseña");
@@ -33,7 +35,8 @@ public class AuthController {
         return ResponseEntity.ok(new AuthResponse(usuario.getId(), usuario.getRoleEnum().toString()));
     }
     
-    public ResponseEntity<?> register(RegisterRequest request) {
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         if (request.username == null || request.password == null || request.email == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Debes proporcionar usuario, contraseña y email");
@@ -48,7 +51,7 @@ public class AuthController {
         // Crear nuevo usuario
         usuarios nuevoUsuario = new usuarios();
         nuevoUsuario.setUsername(request.username);
-        nuevoUsuario.setPassword(request.password); // En producción, hashear esto
+        nuevoUsuario.setPassword(request.password); 
         nuevoUsuario.setEmail(request.email);
         nuevoUsuario.setRoleEnum(ux.mx.listi.Backend_Foro.enums.RoleEnum.User);
 
