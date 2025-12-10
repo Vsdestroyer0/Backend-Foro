@@ -94,9 +94,18 @@ public class PostService {
         
         Post post = postOpt.get();
         
-        // Verificar que el solicitante es el autor
-        if (!post.getAutorId().equals(solicitanteId)) {
-            throw new IllegalArgumentException("Solo el autor puede editar la publicación");
+        // Verificar que el solicitante es el autor O es administrador
+        Optional<usuarios> solicitanteOpt = usuarioRepository.findById(solicitanteId);
+        if (!solicitanteOpt.isPresent()) {
+            throw new IllegalArgumentException("El usuario no existe");
+        }
+        
+        usuarios solicitante = solicitanteOpt.get();
+        boolean esAutor = post.getAutorId().equals(solicitanteId);
+        boolean esAdmin = solicitante.getRoleEnum() == ux.mx.listi.Backend_Foro.enums.RoleEnum.Admin;
+        
+        if (!esAutor && !esAdmin) {
+            throw new IllegalArgumentException("Solo el autor o un administrador pueden editar la publicación");
         }
         
         // Actualizar campos si se proporcionaron
@@ -124,9 +133,18 @@ public class PostService {
         
         Post post = postOpt.get();
         
-        // Verificar que el solicitante es el autor
-        if (!post.getAutorId().equals(solicitanteId)) {
-            throw new IllegalArgumentException("Solo el autor puede eliminar la publicación");
+        // Verificar que el solicitante es el autor O es administrador
+        Optional<usuarios> solicitanteOpt = usuarioRepository.findById(solicitanteId);
+        if (!solicitanteOpt.isPresent()) {
+            throw new IllegalArgumentException("El usuario no existe");
+        }
+        
+        usuarios solicitante = solicitanteOpt.get();
+        boolean esAutor = post.getAutorId().equals(solicitanteId);
+        boolean esAdmin = solicitante.getRoleEnum() == ux.mx.listi.Backend_Foro.enums.RoleEnum.Admin;
+        
+        if (!esAutor && !esAdmin) {
+            throw new IllegalArgumentException("Solo el autor o un administrador pueden eliminar la publicación");
         }
         
         postRepository.deleteById(postId);
