@@ -10,6 +10,10 @@ import ux.mx.listi.Backend_Foro.services.interfaces.PostRepository;
 import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
 import ux.mx.listi.Backend_Foro.models.usuarios;
 
+import java.util.ArrayList; 
+import java.lang.Math;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -135,7 +139,7 @@ public class PostService {
      * @return La publicación actualizada con el nuevo contador de likes
      * @throws IllegalArgumentException si el post no existe
      */
-    public Post darLike(@NonNull String postId, @NonNull String usuarioId) {
+public Post darLike(@NonNull String postId, @NonNull String usuarioId) {
         Optional<Post> postOpt = postRepository.findById(postId);
         if (!postOpt.isPresent()) {
             throw new IllegalArgumentException("La publicación no existe");
@@ -143,12 +147,24 @@ public class PostService {
         
         Post post = postOpt.get();
         
-        // Incrementar likes
-        post.setLikes(post.getLikes() + 1);
+        //inicializar la lista por si es nula
+        List<String> likesList = post.getUsuariosQueDieronLike();
+        if (likesList == null) {
+            likesList = new ArrayList<>();
+        }
+        // verificar si ya le dio like el usuario
+        if (likesList.contains(usuarioId)) {
+            likesList.remove(usuarioId);
+            post.setLikes(Math.max(0, post.getLikes() - 1));
+        } else {
+            likesList.add(usuarioId);
+            post.setLikes(post.getLikes() + 1);
+        }
+        
+        post.setUsuariosQueDieronLike(likesList);
         
         return postRepository.save(post);
     }
-    
     /**
      * Busca publicaciones por título
      * @param titulo Título a buscar
