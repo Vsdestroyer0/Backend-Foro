@@ -102,7 +102,8 @@ public class PostService {
         
         usuarios solicitante = solicitanteOpt.get();
         boolean esAutor = post.getAutorId().equals(solicitanteId);
-        boolean esAdmin = solicitante.getRoleEnum() == ux.mx.listi.Backend_Foro.enums.RoleEnum.Admin;
+        boolean esAdmin = ux.mx.listi.Backend_Foro.enums.RoleEnum.Admin.equals(solicitante.getRoleEnum());
+
         
         if (!esAutor && !esAdmin) {
             throw new IllegalArgumentException("Solo el autor o un administrador pueden editar la publicación");
@@ -141,7 +142,8 @@ public class PostService {
         
         usuarios solicitante = solicitanteOpt.get();
         boolean esAutor = post.getAutorId().equals(solicitanteId);
-        boolean esAdmin = solicitante.getRoleEnum() == ux.mx.listi.Backend_Foro.enums.RoleEnum.Admin;
+        boolean esAdmin = ux.mx.listi.Backend_Foro.enums.RoleEnum.Admin.equals(solicitante.getRoleEnum());
+
         
         if (!esAutor && !esAdmin) {
             throw new IllegalArgumentException("Solo el autor o un administrador pueden eliminar la publicación");

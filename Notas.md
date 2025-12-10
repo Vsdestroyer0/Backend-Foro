@@ -1,16 +1,6 @@
 # Arquitectura
 - Spring Boot + MongoDB Atlas
 
-# Modelos
-## Post: id, titulo, descripcion, autorId, nombreAutor, likes, fechaCreacion, usuariosQueDieronLike
-## Comment: Estructura similar relacionada con posts
-# API Posts
-- POST /api/posts - Crear
-- GET /api/posts - Listar todos
-- GET /api/posts/{id} - Por ID
-- PUT /api/posts/{id} - Actualizar (solo autor)
-- DELETE /api/posts/{id} - Eliminar (solo autor)
-
 # Por parte de spring
 El comando ./mvnw spring-boot:run se usa para ejecutar la aplicación localmente
 El comando ./mvnw clean package -DskipTests se usa para construir la aplicación
