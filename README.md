@@ -35,6 +35,11 @@ curl http://localhost:8080/api/posts
 
 ## Ejemplos de Peticiones
 
+### Producción (Render)
+URL Base: `https://backend-foro-fcn0.onrender.com`
+
+### Local (Desarrollo)
+
 ### Autenticación
 
 #### Registro de Usuario
