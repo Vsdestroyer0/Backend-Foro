@@ -30,6 +30,10 @@ Editar application.properties (Mejor las subo completas, por si dice algo Rojano
 # 3. Ejecutar
 docker-compose up --build
 
+## 3.1 Ejecutar sin Docker
+./mvnw clean package -DskipTests
+java -jar target/Backend-Foro-0.0.1-SNAPSHOT.jar
+
 # 4. Verificar
 curl http://localhost:8080/api/posts
 

@@ -5,12 +5,13 @@ package ux.mx.listi.Backend_Foro.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
+
 import ux.mx.listi.Backend_Foro.models.Comment;
 import ux.mx.listi.Backend_Foro.models.Post;
 import ux.mx.listi.Backend_Foro.models.usuarios;
-import ux.mx.listi.Backend_Foro.services.interfaces.CommentRepository;
-import ux.mx.listi.Backend_Foro.services.interfaces.PostRepository;
-import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
+import ux.mx.listi.Backend_Foro.repositories.CommentRepository;
+import ux.mx.listi.Backend_Foro.repositories.PostRepository;
+import ux.mx.listi.Backend_Foro.repositories.UsuarioRepository;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,5 +1,5 @@
 /* paquete */
-package ux.mx.listi.Backend_Foro.services.interfaces;
+package ux.mx.listi.Backend_Foro.repositories;
 
 /* Importaciones */
 import java.util.Optional;

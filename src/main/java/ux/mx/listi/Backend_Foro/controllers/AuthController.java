@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import ux.mx.listi.Backend_Foro.models.usuarios;
-import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
+import ux.mx.listi.Backend_Foro.repositories.UsuarioRepository;
 
 // Nos da todos los métodos CRUD
 // Se define como REST con esto
