@@ -170,6 +170,6 @@ Invoke-WebRequest -Uri "http://localhost:8080/api/comments/COMMENT_ID" `
 ## Notas
 
 - **X-User-Id**: Header requerido para operaciones de modificación/eliminación
-- **TU_USER_ID**: Reemplazar con ID real de usuario obtenido del login
+- **TU_USER_ID**: Reemplazar con ID real de usuario obtenido del login (aunque tambien por algún administrador)
 - **POST_ID/COMMENT_ID**: Reemplazar con IDs reales de posts/comentarios
 

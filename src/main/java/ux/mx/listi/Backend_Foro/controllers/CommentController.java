@@ -30,27 +30,19 @@ public class CommentController {
     @Autowired
     private PostService postService;
     
-    /**
-     * Clase interna para representar la solicitud de creación de comentario
-     */
+    //Clase interna para representar la solicitud de creación de comentario
     public static class CreateCommentRequest {
         public String postId;
         public String autorId;
         public String contenido;
     }
     
-    /**
-     * Clase interna para representar la solicitud de actualización de comentario
-     */
+    //Clase interna para representar la solicitud de actualización de comentario
     public static class UpdateCommentRequest {
         public String contenido;
     }
     
-    /**
-     * Endpoint para crear un nuevo comentario
-     * @param request Objeto con los datos del nuevo comentario
-     * @return El comentario creado
-     */
+    //Endpoint para crear un nuevo comentario
     @PostMapping
     public ResponseEntity<?> crearComment(@RequestBody CreateCommentRequest request) {
         try {
@@ -78,11 +70,7 @@ public class CommentController {
         }
     }
     
-    /**
-     * Endpoint para obtener todos los comentarios de una publicación
-     * @param postId ID de la publicación
-     * @return Lista de comentarios de la publicación ordenados por fecha ascendente
-     */
+    //Endpoint para obtener todos los comentarios de una publicación
     @GetMapping("/post/{postId}")
     public ResponseEntity<?> obtenerCommentsPorPost(@PathVariable @NonNull String postId) {
         try {
@@ -93,11 +81,7 @@ public class CommentController {
         }
     }
     
-    /**
-     * Endpoint para obtener un comentario por su ID
-     * @param commentId ID del comentario
-     * @return El comentario solicitado
-     */
+    //Endpoint para obtener un comentario por su ID
     @GetMapping("/{commentId}")
     public ResponseEntity<?> obtenerCommentPorId(@PathVariable @NonNull String commentId) {
         try {

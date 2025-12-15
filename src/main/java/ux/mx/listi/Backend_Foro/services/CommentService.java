@@ -15,14 +15,10 @@ import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Servicio que maneja la lógica de negocio para los comentarios del foro
- * Proporciona métodos para crear, leer y eliminar comentarios
- */
+//Servicio que maneja la lógica de negocio para los comentarios del foro Proporciona métodos para crear, leer y eliminar comentarios
 @Service
 public class CommentService {
-    
-    @Autowired
+        @Autowired
     private CommentRepository commentRepository;
     
     @Autowired

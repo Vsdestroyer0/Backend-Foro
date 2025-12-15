@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import ux.mx.listi.Backend_Foro.models.usuarios;
 import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
 
+// Nos da todos los métodos CRUD
+// Se define como REST con esto
 @RestController
+// Definimos ruta base 
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
@@ -17,6 +20,7 @@ public class AuthController {
     
     // ResponseEntity es una clase de Spring para controlar respuestas tipo HTTP
     // ? Indica que el tipo de respuesta puede ser cualquier cosa
+    //
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         if (request.email == null || request.password == null) {
