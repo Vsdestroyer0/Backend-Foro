@@ -12,18 +12,20 @@ import ux.mx.listi.Backend_Foro.services.interfaces.UsuarioRepository;
 // Nos da todos los métodos CRUD
 // Se define como REST con esto
 @RestController
-// Definimos ruta base 
+// Definimos ruta base
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
     private UsuarioRepository usuarioRepository;
-    
+
     // ResponseEntity es una clase de Spring para controlar respuestas tipo HTTP
     // ? Indica que el tipo de respuesta puede ser cualquier cosa
     //
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         if (request.email == null || request.password == null) {
+            // ResponseEntity es una clase de Spring para controlar respuestas tipo HTTP,
+            // las encapsula en un objeto que se puede enviar como respuesta
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Debes proporcionar email y contraseña");
         }
@@ -36,9 +38,10 @@ public class AuthController {
                     .body("Email o contraseña incorrectos");
         }
 
-        return ResponseEntity.ok(new AuthResponse(usuario.getId(), usuario.getRoleEnum().toString()));
+        return ResponseEntity
+                .ok(new AuthResponse(usuario.getId(), usuario.getRoleEnum().toString(), usuario.getUsername()));
     }
-    
+
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         if (request.username == null || request.password == null || request.email == null) {
@@ -55,37 +58,39 @@ public class AuthController {
         // Crear nuevo usuario
         usuarios nuevoUsuario = new usuarios();
         nuevoUsuario.setUsername(request.username);
-        nuevoUsuario.setPassword(request.password); 
+        nuevoUsuario.setPassword(request.password);
         nuevoUsuario.setEmail(request.email);
         nuevoUsuario.setRoleEnum(ux.mx.listi.Backend_Foro.enums.RoleEnum.User);
 
         usuarios guardado = usuarioRepository.save(nuevoUsuario);
-        
-        return ResponseEntity.ok(new AuthResponse(guardado.getId(), guardado.getRoleEnum().toString()));
+
+        return ResponseEntity.ok(new AuthResponse(guardado.getId(), guardado.getRoleEnum().toString(), guardado.getUsername()));
     }
-    
+
     /* Clases internas para las respuestas */
     // LoginRequest es una clase interna para la solicitud de login
     public static class LoginRequest {
         public String email;
         public String password;
     }
-    
+
     // RegisterRequest es una clase interna para la solicitud de registro
     public static class RegisterRequest {
         public String username;
         public String password;
         public String email;
     }
-    
+
     // AuthResponse es una clase interna para la respuesta de autenticación
     public static class AuthResponse {
         public String userId;
         public String role;
-        
-        public AuthResponse(String userId, String role) {
+        public String username;
+
+        public AuthResponse(String userId, String role, String username) {
             this.userId = userId;
             this.role = role;
+            this.username = username;
         }
     }
 }

@@ -4,7 +4,6 @@ package ux.mx.listi.Backend_Foro.models;
 /* Importaciones */
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.lang.NonNull;
 import java.time.LocalDateTime;
 
 /**
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 public class Comment {
     @Id
     private String id;
-    @NonNull
     private String postId;           // ID del post al que pertenece el comentario
     private String autorId;          // ID del usuario que hizo el comentario
     private String nombreAutor;      // Nombre del autor para mostrar fácilmente
@@ -46,12 +44,11 @@ public class Comment {
         this.id = id;
     }
 
-    @NonNull
     public String getPostId() {
         return postId;
     }
 
-    public void setPostId(@NonNull String postId) {
+    public void setPostId(String postId) {
         this.postId = postId;
     }
 

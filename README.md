@@ -21,11 +21,11 @@
 
 ### Pasos
 # 1. Clonar repositorio
-git clone <tu-repo-url>
+git clone https://github.com/Vsdestroyer0/Backend-Foro.git
 cd Backend-Foro/Backend-Foro
 
 # 2. Configurar variables de entorno
-Editar application.properties con tu conexión MongoDB
+Editar application.properties (Mejor las subo completas, por si dice algo Rojano)
 
 # 3. Ejecutar
 docker-compose up --build
@@ -39,6 +39,7 @@ curl http://localhost:8080/api/posts
 URL Base: `https://backend-foro-fcn0.onrender.com`
 
 ### Local (Desarrollo)
+npm start
 
 ### Autenticación
 
